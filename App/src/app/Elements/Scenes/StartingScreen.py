@@ -3,8 +3,8 @@ from .Scene import Scene
 from app.Elements.Button import Button
 
 class StartingScreen(Scene):
-    def __init__(self, screen: pygame.Surface):
-        super().__init__(screen, "StartingScreen")
+    def __init__(self, screen: pygame.Surface, name: str = "StartingScreen"):
+        super().__init__(screen, name)
 
     def enter(self):
         screen = self.SCREEN
@@ -14,7 +14,9 @@ class StartingScreen(Scene):
         self.button.display()
 
     def update(self):
-        self.button.on_hover_color()
+        if self.button.is_clicked():
+            print("Clicked")
+            self.EVENTS.append(("change_scene", self, "TestScene"))
 
     def exit(self):
         pass

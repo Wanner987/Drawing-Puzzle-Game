@@ -13,24 +13,16 @@ pygame.display.set_caption(WINDOW_NAME)
 clock = pygame.time.Clock()
 sceneManager = SceneManager(START_SCREEN, screen)
 
-def run():
-    _ready()
-    _process()
+running = True
+while running:
+    # check for quit
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
 
-def _ready():
-    pass
+    # update the current scene
+    sceneManager.update()
 
-def _process():
-    running = True
-    while running:
-        # check for quit
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                running = False
-
-        sceneManager.update()
-        # update display and clock(delta)
-        pygame.display.flip()
-        clock.tick(FPS)
-
-run()
+    # update display and clock(delta)
+    pygame.display.flip()
+    clock.tick(FPS)

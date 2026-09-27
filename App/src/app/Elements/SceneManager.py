@@ -1,22 +1,23 @@
 import pygame
 from .Scenes import Scene
 from app.Elements.Scenes.StartingScreen import StartingScreen
+from app.Elements.Scenes.TestScene import TestScene
 
 class SceneManager:
     def __init__(self, initScene : str, screen: pygame.Surface):
         self.SCREEN = screen
 
-
+        # put all scenes here
         self.all_scenes = [
-            StartingScreen(self.SCREEN)
+            StartingScreen(self.SCREEN, "StartingScreen"),
+            TestScene(self.SCREEN, "TestScene")
         ]
         self.SCENES = self.get_all_scenes()
 
         # start the init scene
         if initScene not in self.SCENES:
             raise KeyError("Initial scene could not be found")
-        else:
-            self.CURRENT_SCENE : Scene = self.SCENES[initScene]
+        self.CURRENT_SCENE : Scene = self.SCENES[initScene]
 
         self.CURRENT_SCENE.enter()
 
@@ -29,7 +30,7 @@ class SceneManager:
         return myDict
 
     def change_scene(self, current_scene, new_scene = "default"):
-        new_scene = self.SCENES.get(new_scene.lower())
+        new_scene = self.SCENES.get(new_scene)
 
         if new_scene is None:
             raise KeyError("New Scene could not be found")
@@ -39,6 +40,10 @@ class SceneManager:
         self.CURRENT_SCENE.enter()
 
     def update(self):
+        for event in self.CURRENT_SCENE.EVENTS:
+            if event[0] == "change_scene":
+                self.change_scene(event[1], event[2])
+        
         self.CURRENT_SCENE.update()
 
     def get_screen(self):
