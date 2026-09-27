@@ -1,9 +1,9 @@
 import pygame
-from ..SceneManager import SceneManager
 
 class Scene:
-    def __init__(self):
-        self.SCRENE = SceneManager.get_screen
+    def __init__(self, screen: pygame.Surface, name: str = "default"):
+        self.SCREEN = screen
+        self.NAME = name
 
     def enter(self):
         pass

@@ -1,16 +1,20 @@
 import pygame
 from .Scene import Scene
-from ..SceneManager import SceneManager
+from app.Elements.Button import Button
 
 class StartingScreen(Scene):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, screen: pygame.Surface):
+        super().__init__(screen, "StartingScreen")
 
     def enter(self):
-        pass
+        screen = self.SCREEN
+        self.button = Button(100, 100, 50, 50, "red", screen)
+        
+        screen.fill("blue")
+        self.button.display()
 
     def update(self):
-        raise NotImplementedError("Must have a process")
+        self.button.on_hover_color()
 
     def exit(self):
         pass

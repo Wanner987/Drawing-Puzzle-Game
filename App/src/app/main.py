@@ -1,31 +1,24 @@
-import pkgutil
-import importlib
-import inspect
 import pygame
-from .Elements import Button
-from app.Elements.Scenes import Scene
-
+from app.Elements.Scenes.StartingScreen import StartingScreen
+from app.Elements.SceneManager import SceneManager
 
 SCREEN_SIZE = (850, 500)
 FPS = 30
 WINDOW_NAME = "Drawing Puzzle Game"
-START_SCENE = Scene()
-CURRENT_SCENE = Scene()
-
+START_SCREEN = "StartingScreen"
 
 pygame.init()
 screen = pygame.display.set_mode(SCREEN_SIZE)
 pygame.display.set_caption(WINDOW_NAME)
 clock = pygame.time.Clock()
-button = Button(100, 100, 50, 50, "red", screen)
+sceneManager = SceneManager(START_SCREEN, screen)
 
 def run():
     _ready()
     _process()
 
 def _ready():
-    screen.fill("blue")
-    button.display()
+    pass
 
 def _process():
     running = True
@@ -35,8 +28,7 @@ def _process():
             if event.type == pygame.QUIT:
                 running = False
 
-        button.on_hover_color()
-
+        sceneManager.update()
         # update display and clock(delta)
         pygame.display.flip()
         clock.tick(FPS)
