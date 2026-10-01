@@ -6,7 +6,7 @@ class TestScene(Scene):
         super().__init__(screen, name)
 
     def enter(self):
-        self.SCREEN.fill("purple")
+        self.SCREEN.fill("white")
     
     def update(self):
         pass
