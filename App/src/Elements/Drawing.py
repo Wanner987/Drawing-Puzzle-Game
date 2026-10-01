@@ -1,19 +1,14 @@
 import pygame
 
 class Drawing:
-    def __init__(self, screen):
-        self.screen = screen
+    def __init__(self, screen, penSize=5):
+        self.screen : pygame.Surface = screen
         self.drawingArea = None  # This will be set to a pygame.Rect defining the drawing area
         self.shapes = []
         self.color = (0, 0, 0)  # Default color is black // will change later
+        self.penSize = penSize
 
-    def start_draw(self):
-        pass
-
-    def draw_process(self):
+    def draw(self):
         mouse_pos = pygame.mouse.get_pos()
-        
-
-    def end_draw(self, vectors):
-        self.shapes.append(vectors)
+        pygame.draw.circle(self.screen, self.color, mouse_pos, self.penSize)
     

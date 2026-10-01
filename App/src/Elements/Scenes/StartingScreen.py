@@ -1,6 +1,6 @@
 import pygame
 from .Scene import Scene
-from app.Elements.Button import Button
+from Elements.Button import Button
 
 class StartingScreen(Scene):
     def __init__(self, screen: pygame.Surface, name: str = "StartingScreen"):

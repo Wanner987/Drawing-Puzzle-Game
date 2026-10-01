@@ -1,6 +1,6 @@
 import pygame
-from app.Elements.Scenes.StartingScreen import StartingScreen
-from app.Elements.SceneManager import SceneManager
+from Elements.Scenes.StartingScreen import StartingScreen
+from Elements.SceneManager import SceneManager
 
 SCREEN_SIZE = (850, 500)
 FPS = 30

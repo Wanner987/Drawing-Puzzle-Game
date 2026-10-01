@@ -1,7 +1,7 @@
 import pygame
 from .Scenes import Scene
-from app.Elements.Scenes.StartingScreen import StartingScreen
-from app.Elements.Scenes.TestScene import TestScene
+from Elements.Scenes.StartingScreen import StartingScreen
+from Elements.Scenes.TestScene import TestScene
 
 class SceneManager:
     def __init__(self, initScene : str, screen: pygame.Surface):
