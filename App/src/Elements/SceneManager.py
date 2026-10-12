@@ -1,7 +1,7 @@
 import pygame
 from .Scenes import Scene
-from Elements.Scenes.StartingScreen import StartingScreen
-from Elements.Scenes.TestScene import TestScene
+from Elements.Scenes.startingScreen import StartingScreen
+from Elements.Scenes.testScene import TestScene
 
 class SceneManager:
     def __init__(self, initScene : str, screen: pygame.Surface):
@@ -9,9 +9,10 @@ class SceneManager:
 
         # put all scenes here
         self.all_scenes = [
-            StartingScreen(self.SCREEN, "StartingScreen"),
-            TestScene(self.SCREEN, "TestScene")
+            StartingScreen(self.SCREEN, "startingScreen"),
+            TestScene(self.SCREEN, "testScene")
         ]
+        # Dict with SceneName : SceneObject
         self.SCENES = self.get_all_scenes()
 
         # start the init scene
@@ -40,10 +41,6 @@ class SceneManager:
         self.CURRENT_SCENE.enter()
 
     def update(self):
-        for event in self.CURRENT_SCENE.EVENTS:
-            if event[0] == "change_scene":
-                self.change_scene(event[1], event[2])
-        
         self.CURRENT_SCENE.update()
 
     def get_screen(self):

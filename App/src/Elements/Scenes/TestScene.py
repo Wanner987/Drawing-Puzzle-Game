@@ -1,6 +1,6 @@
 import pygame
-from .Scene import Scene
-from ..Drawing import Drawing
+from .scene import Scene
+from ..drawing import Drawing
 
 class TestScene(Scene):
     def __init__(self, screen: pygame.Surface, name: str = "TestScene"):

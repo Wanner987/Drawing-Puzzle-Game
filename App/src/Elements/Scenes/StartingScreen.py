@@ -1,6 +1,7 @@
 import pygame
-from .Scene import Scene
-from Elements.Button import Button
+from .scene import Scene
+from Elements.button import Button
+from ..eventManager import EventManager
 
 class StartingScreen(Scene):
     def __init__(self, screen: pygame.Surface, name: str = "StartingScreen"):
@@ -15,8 +16,7 @@ class StartingScreen(Scene):
 
     def update(self):
         if self.button.is_clicked():
-            print("Clicked")
-            self.EVENTS.append(("change_scene", self, "TestScene"))
+            EventManager.changeScene(self, "testScene")
 
     def exit(self):
         pass
