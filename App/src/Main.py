@@ -1,11 +1,11 @@
 import pygame
-from Elements.Scenes.startingScreen import StartingScreen
-from Elements.sceneManager import SceneManager
+from elements.scenes.startingScreen import StartingScreen
+from elements.sceneManager import SceneManager
 
 SCREEN_SIZE = (850, 500)
-FPS = 30
+FPS = 60
 WINDOW_NAME = "Drawing Puzzle Game"
-START_SCREEN = "StartingScreen"
+START_SCREEN = "startingScreen"
 
 pygame.init()
 screen = pygame.display.set_mode(SCREEN_SIZE)
@@ -16,9 +16,8 @@ sceneManager = SceneManager(START_SCREEN, screen)
 running = True
 while running:
     # check for quit
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
+    if pygame.event.peek(pygame.QUIT):
+        running = False
 
     # update the current scene
     sceneManager.update()

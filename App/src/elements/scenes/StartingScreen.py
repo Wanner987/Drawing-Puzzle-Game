@@ -1,6 +1,6 @@
 import pygame
 from .scene import Scene
-from Elements.button import Button
+from elements.button import ImageButton
 from ..eventManager import EventManager
 
 class StartingScreen(Scene):
@@ -9,7 +9,7 @@ class StartingScreen(Scene):
 
     def enter(self):
         screen = self.SCREEN
-        self.button = Button(100, 100, 50, 50, "red", screen)
+        self.button = ImageButton(100, 100, pygame.image.load('App/src/assets/StartButtonPlaceholder.png'), self.SCREEN, 8)
         
         screen.fill("blue")
         self.button.display()

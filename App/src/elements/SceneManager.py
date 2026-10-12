@@ -1,7 +1,8 @@
 import pygame
-from .Scenes import Scene
-from Elements.Scenes.startingScreen import StartingScreen
-from Elements.Scenes.testScene import TestScene
+from .scenes.scene import Scene
+from .eventManager import EventManager
+from elements.scenes.startingScreen import StartingScreen
+from elements.scenes.testScene import TestScene
 
 class SceneManager:
     def __init__(self, initScene : str, screen: pygame.Surface):
@@ -14,6 +15,7 @@ class SceneManager:
         ]
         # Dict with SceneName : SceneObject
         self.SCENES = self.get_all_scenes()
+        EventManager.onSceneChange.append(self.change_scene)
 
         # start the init scene
         if initScene not in self.SCENES:

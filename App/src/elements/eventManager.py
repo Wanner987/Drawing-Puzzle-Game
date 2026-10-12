@@ -15,5 +15,11 @@ class EventManager:
             for function in cls.onSceneChange:
                 function(currentScene, nextScene)
     
+    onShapeRecognized : list = []
+    @classmethod
+    def shapeRecognized(cls, shape : str):
+        if len(cls.onShapeRecognized) > 0:
+            for func in cls.onShapeRecognized:
+                func(shape)
     
     # 
