@@ -11,14 +11,13 @@ class TestScene(Scene):
         self.SCREEN.fill("white")
         self.drawing = Drawing(self.SCREEN, 10)
         EventManager.onShapeRecognized.append(self.changeBackground)
-
     
     def update(self):
         for event in pygame.event.get():
             self.drawing.drawUpdate(event)
 
     def exit(self):
-        pass
+        EventManager.onShapeRecognized.remove(self.changeBackground)
 
     def changeBackground(self, shape : str):
         colors = {

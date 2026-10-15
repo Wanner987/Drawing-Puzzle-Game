@@ -1,5 +1,4 @@
 import pygame
-from elements.scenes.startingScreen import StartingScreen
 from elements.sceneManager import SceneManager
 
 SCREEN_SIZE = (850, 500)
