@@ -3,6 +3,11 @@ Drawing Puzzle Game (Name will be refined later) is a game where you solve puzzl
 
 [Canvas page for ASE420: ](https://nku.instructure.com/courses/91834/pages/individual-project-page-of-tanner-andrews)
 
+## Documentation
+
+See Docs folder for all documentation
+
+
 ## Running the game
 
 The game requires Python 3.12 and [uv](https://docs.astral.sh/uv/getting-started/installation/).
