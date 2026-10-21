@@ -9,7 +9,7 @@ class StartingScreen(Scene):
 
     def enter(self):
         screen = self.SCREEN
-        self.button = ImageButton(100, 100, pygame.image.load('App/src/assets/StartButtonPlaceholder.png'), self.SCREEN, 8)
+        self.button = ImageButton(100, 100, pygame.image.load('src/assets/StartButtonPlaceholder.png'), self.SCREEN, 8)
         
         screen.fill("blue")
         self.button.display()
