@@ -72,8 +72,8 @@ class SceneManager:
 
         self.CURRENT_SCENE = current_scene
 
-    def update(self):
-        self.CURRENT_SCENE.update()
+    def update(self, deltaTime):
+        self.CURRENT_SCENE.update(deltaTime)
 
     def get_screen(self):
         return self.SCREEN

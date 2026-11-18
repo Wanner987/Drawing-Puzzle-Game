@@ -1,5 +1,5 @@
 import math
-from .eventManager import EventManager
+from ..eventManager import EventManager
 
 class recognizeDrawing:
     # For now this will only use the $1 unistroke recognizer
@@ -121,3 +121,14 @@ class recognizeDrawing:
         
         EventManager.shapeRecognized(recognizedShape)
         return recognizedShape
+
+    def drawingCenter(self, points: list):
+        averageX = 0
+        averageY = 0
+
+        xPoints, yPoints = zip(*points) 
+
+        averageX = sum(xPoints) / len(xPoints)
+        averageY = sum(yPoints) / len(yPoints)
+
+        return (averageX, averageY)

@@ -1,6 +1,6 @@
 import pygame
 from .scene import Scene
-from ..drawing import Drawing
+from ..drawing.drawing import Drawing
 from ..eventManager import EventManager
 
 class TestScene(Scene):
@@ -12,9 +12,10 @@ class TestScene(Scene):
         self.drawing = Drawing(self.SCREEN, 10)
         EventManager.onShapeRecognized.append(self.changeBackground)
     
-    def update(self):
+    def update(self, delta=0):
         for event in pygame.event.get():
             self.drawing.drawUpdate(event)
+        print(delta)
 
     def exit(self):
         EventManager.onShapeRecognized.remove(self.changeBackground)

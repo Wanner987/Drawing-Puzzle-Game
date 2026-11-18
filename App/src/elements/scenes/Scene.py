@@ -9,7 +9,7 @@ class Scene:
     def enter(self):
         pass
 
-    def update(self):
+    def update(self, delta=0):
         raise NotImplementedError("Must have a process")
 
     def exit(self):

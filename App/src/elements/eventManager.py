@@ -21,5 +21,5 @@ class EventManager:
         if len(cls.onShapeRecognized) > 0:
             for func in cls.onShapeRecognized:
                 func(shape)
-    
+
     # 
